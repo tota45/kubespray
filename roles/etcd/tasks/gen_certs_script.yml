@@ -104,7 +104,7 @@
     src: "{{ item }}"
   register: etcd_master_node_certs
   with_items:
-    - "[{% for node in groups['k8s_cluster'] %}
+    - "[{% for node in groups['etcd'] %}
         '{{ etcd_cert_dir }}/node-{{ node }}.pem',
         '{{ etcd_cert_dir }}/node-{{ node }}-key.pem',
         {% endfor %}]"
